@@ -33,10 +33,9 @@ Aloitin asennuksen 22.01.2024 kello 0.18 ohjeen https://terokarvinen.com/2021/in
 Asetin sen jo aikaisemmassa kohdassa, joten se on jo valmiiksi valittuna Storage-kohdassa.
 ## Käynnistys
 Käynnistin Debianin 0.27, valitaan Live system (amd64). Käynnistys kesti noin 3min ja valmistui 0.30. Ei näyttänyt olevan logeissa ongelmia. Myös kuvan osoittama testi toimi.
-![TeroKarvinenTesti]
-(https://github.com/NicoSaario/Tunti1/assets/156778628/4b89afa8-47c1-4a58-9efd-ab5afccb7f67)
 
--- kuva tähän
+![Nappaimistotesti](https://github.com/NicoSaario/Tunti1/assets/156778628/c62a0c06-bfb3-41b8-9071-27aeb2300dbc)
+
 Pienen testailun jälkeen avasin Debian GNU/Linux Installerin työpöydältä kello 0.35.
 ## Installer
  -> American English
