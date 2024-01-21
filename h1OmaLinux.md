@@ -32,13 +32,15 @@ Aloitin asennuksen 22.01.2024 kello 0.18 ohjeen https://terokarvinen.com/2021/in
 ### ISO-image
 Asetin sen jo aikaisemmassa kohdassa, joten se on jo valmiiksi valittuna Storage-kohdassa.
 ## Käynnistys
-Käynnistin Debianin 0.27, valitaan Live system (amd64). Käynnistys kesti noin 3min ja valmistui 0.30. Ei näyttänyt olevan logeissa ongelmia. Myös kuvan osoittama testi toimi.
+Käynnistin Debianin 0.27, valitaan Live system (amd64). Käynnistys kesti noin 3min ja valmistui 0.30. Ei näyttänyt olevan logeissa ongelmia. Myös kuvan osoittama testi toimi. ![TeroKarvinenTesti](https://github.com/NicoSaario/Tunti1/assets/156778628/4b89afa8-47c1-4a58-9efd-ab5afccb7f67)
+
 -- kuva tähän
 Pienen testailun jälkeen avasin Debian GNU/Linux Installerin työpöydältä kello 0.35.
 ## Installer
  -> American English
  Next -> Region: Europe, Zone: Helsinki
- Next -> Keyboard model Generic 105-key PC Defaulttina, Finnish ja Default -> Tässä kohtaa on myös hyvä kokeilla näppäimistön toimivuutta ja kuten kuvasta näkyy, kaikki toimi
+ Next -> Keyboard model Generic 105-key PC Defaulttina, Finnish ja Default -> Tässä kohtaa on myös hyvä kokeilla näppäimistön toimivuutta ja kuten kuvasta näkyy, kaikki toimi ![Nappaimistotesti](https://github.com/NicoSaario/Tunti1/assets/156778628/c45c64ec-85eb-47c7-9144-1c2e4b7ef262)
+
 Next -> Erase Disk, jotta päästään turhista "roskista" eroon ja tämä poistaa kaiken virtuaalikoneelta -> Encrypt: no, koska kyseessä on virtuaalikone, Boot Loader defaulttina "Master Boot Record..."
 Next -> User-tiedot - tärkeintä, ettei ole omaa, yrityksen tai tietokoneen specksejä, koska joissain verkoissa siitä tulee julkinen verkkotunnus ja sen pystyy näkemään
 -> Summary ja pitää muistaa laittaa installer full screenille, jotta "Install-button" tulee näkyville.
