@@ -23,6 +23,7 @@
 
 # Linuxin asennus virtuaalikoneeseen
 
+### Alkutiedot
 Olin jo aiemmalla kurssilla ICT-infra/pilvi asentanut Oracle VM VirtualBox Managerin, mutta päivitin sen versioon 7.0.14 ja raportti on luotu sen pohjalta. Debian tuli ladattua valmiiksi tunnilla oheisesta linkistä:
 https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/ ja kyseessä debian-live-12.1.0-amd64-xfce.iso - tiedosto.
 Asennukset alkoivat VirtualBoxin päivityksellä noin kello 23:40. Boxin päivitys loppui 23.45 ja kaikki kyseisen raportin pohjalta on tehty kotioloissa Windows 11, AMD Ryzen 5 4500U, HP läppärillä.
