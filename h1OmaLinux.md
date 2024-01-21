@@ -25,7 +25,24 @@
 
 Olin jo aiemmalla kurssilla ICT-infra/pilvi asentanut Oracle VM VirtualBox Managerin, mutta päivitin sen versioon 7.0.14 ja raportti on luotu sen pohjalta. Debian tuli ladattua valmiiksi tunnilla oheisesta linkistä:
 https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/ ja kyseessä debian-live-12.1.0-amd64-xfce.iso - tiedosto.
-Asennukset alkoivat VirtualBoxin päivityksellä noin kello 23:40. Boxin päivitys loppui 23.45 ja kaikki kyseisen raportin pohjalta on tehty kotioloissa Windows 11, AMD Ryzen 5 4500U
+Asennukset alkoivat VirtualBoxin päivityksellä noin kello 23:40. Boxin päivitys loppui 23.45 ja kaikki kyseisen raportin pohjalta on tehty kotioloissa Windows 11, AMD Ryzen 5 4500U, HP läppärillä.
+
+## Asennus
+Aloitin asennuksen 22.01.2024 kello 0.18 ohjeen https://terokarvinen.com/2021/install-debian-on-virtualbox/ mukaan. Expert mode - Nimen asettaminen, ISO image, Type = Linux ja Debian (64-bit), klikkasin myös "Skip Unattended Installation". RAMia pitäisi olla riittävästi, joten valitsin 4096MB ja tunnilla käydyn ohjeen mukaan laitoin 4 prosessoria. Laitoin File-Sizen Hard Disk kohdassa 60GB, muut jäivät defaulteiksi.
+### ISO-image
+Asetin sen jo aikaisemmassa kohdassa, joten se on jo valmiiksi valittuna Storage-kohdassa.
+## Käynnistys
+Käynnistin Debianin 0.27, valitaan Live system (amd64). Käynnistys kesti noin 3min ja valmistui 0.30. Ei näyttänyt olevan logeissa ongelmia. Myös kuvan osoittama testi toimi.
+-- kuva tähän
+Pienen testailun jälkeen avasin Debian GNU/Linux Installerin työpöydältä kello 0.35.
+## Installer
+ -> American English
+ Next -> Region: Europe, Zone: Helsinki
+ Next -> Keyboard model Generic 105-key PC Defaulttina, Finnish ja Default -> Tässä kohtaa on myös hyvä kokeilla näppäimistön toimivuutta ja kuten kuvasta näkyy, kaikki toimi
+Next -> Erase Disk, jotta päästään turhista "roskista" eroon ja tämä poistaa kaiken virtuaalikoneelta -> Encrypt: no, koska kyseessä on virtuaalikone, Boot Loader defaulttina "Master Boot Record..."
+Next -> User-tiedot - tärkeintä, ettei ole omaa, yrityksen tai tietokoneen specksejä, koska joissain verkoissa siitä tulee julkinen verkkotunnus ja sen pystyy näkemään
+-> Summary ja pitää muistaa laittaa installer full screenille, jotta "Install-button" tulee näkyville.
+Osio kesti raporttia samalla kirjoittaessa noin 13 minuuttia. Asennus alkoi 0.52
 
 
 
