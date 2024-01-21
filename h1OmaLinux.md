@@ -30,7 +30,7 @@ Asennukset alkoivat VirtualBoxin päivityksellä noin kello 23:40. Boxin päivit
 ## Asennus
 Aloitin asennuksen 22.01.2024 kello 0.18 ohjeen https://terokarvinen.com/2021/install-debian-on-virtualbox/ mukaan. Expert mode - Nimen asettaminen, ISO image, Type = Linux ja Debian (64-bit), klikkasin myös "Skip Unattended Installation". RAMia pitäisi olla riittävästi, joten valitsin 4096MB ja tunnilla käydyn ohjeen mukaan laitoin 4 prosessoria. Laitoin File-Sizen Hard Disk kohdassa 60GB, muut jäivät defaulteiksi.
 ### ISO-image
-Asetin sen jo aikaisemmassa kohdassa, joten se on jo valmiiksi valittuna Storage-kohdassa.
+Asetin sen jo aikaisemmassa kohdassa, joten se on jo valmiiksi valittuna Storage-lehdellä.
 ## Käynnistys
 Käynnistin Debianin 0.27, valitaan Live system (amd64). Käynnistys kesti noin 3min ja valmistui 0.30. Ei näyttänyt olevan logeissa ongelmia. Myös kuvan osoittama testi toimi.
 
