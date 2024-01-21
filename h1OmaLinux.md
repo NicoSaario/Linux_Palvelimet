@@ -33,7 +33,7 @@ Aloitin asennuksen 22.01.2024 kello 0.18 ohjeen https://terokarvinen.com/2021/in
 ### ISO-image
 Asetin sen jo aikaisemmassa kohdassa, joten se on jo valmiiksi valittuna Storage-lehdellä.
 ## Käynnistys
-Käynnistin Debianin 0.27, valitaan Live system (amd64). Käynnistys kesti noin 3min ja valmistui 0.30. Ei näyttänyt olevan logeissa ongelmia. Myös kuvan osoittama testi toimi.
+Käynnistin kernelin 0.27, valitaan Live system (amd64). Käynnistys kesti noin 3min ja valmistui 0.30. Ei näyttänyt olevan logeissa ongelmia. Myös kuvan osoittama testi toimi.
 
 ![TeroKarvinenTesti](https://github.com/NicoSaario/Tunti1/assets/156778628/5db56345-5515-4a4b-b3aa-ec688eb8df8c)
 
