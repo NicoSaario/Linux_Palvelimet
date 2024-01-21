@@ -43,8 +43,7 @@ Pienen testailun jälkeen avasin Debian GNU/Linux Installerin työpöydältä ke
 - -> American English
 - Next -> Region: Europe, Zone: Helsinki
 - Next -> Keyboard model Generic 105-key PC Defaulttina, Finnish ja Default -> Tässä kohtaa on myös hyvä kokeilla näppäimistön toimivuutta ja kuten kuvasta näkyy, kaikki toimi
-  ![Nappaimistotesti]
-  (https://github.com/NicoSaario/Tunti1/assets/156778628/c45c64ec-85eb-47c7-9144-1c2e4b7ef262)
+ ![Nappaimistotesti](https://github.com/NicoSaario/Tunti1/assets/156778628/0921b0b7-f89c-44b4-9581-55f27b70e41d)
 
 - Next -> Erase Disk, jotta päästään turhista "roskista" eroon ja tämä poistaa kaiken virtuaalikoneelta -> Encrypt: no, koska kyseessä on virtuaalikone, Boot Loader defaulttina "Master Boot Record..."
 - Next -> User-tiedot - tärkeintä, ettei ole omaa, yrityksen tai tietokoneen specksejä, koska joissain verkoissa siitä tulee julkinen verkkotunnus ja sen pystyy näkemään
