@@ -47,12 +47,13 @@ Pienen testailun jälkeen avasin Debian GNU/Linux Installerin työpöydältä ke
 
 - Next -> Erase Disk, jotta päästään turhista "roskista" eroon ja tämä poistaa kaiken virtuaalikoneelta -> Encrypt: no, koska kyseessä on virtuaalikone, Boot Loader defaulttina "Master Boot Record..."
 - Next -> User-tiedot - tärkeintä, ettei ole omaa, yrityksen tai tietokoneen specksejä, koska joissain verkoissa siitä tulee julkinen verkkotunnus ja sen pystyy näkemään
--> Summary ja pitää muistaa laittaa installer full screenille, jotta "Install-button" tulee näkyville.
-Osio kesti raporttia samalla kirjoittaessa noin 13 minuuttia. Asennus alkoi 0.52 ja päättyi 1.10.
+- -> Summary ja pitää muistaa laittaa installer full screenille, jotta "Install-button" tulee näkyville.
+
+- Osio kesti raporttia samalla kirjoittaessa noin 13 minuuttia. Asennus alkoi 0.52 ja päättyi 1.10.
 Pääsin kirjautumaan sisään ja myös verkkosivustot toimivat. Jouduin kerran käynnistämään uudestaan koko Debianin, sillä se kaatui jostain syystä.
 
 
-Lähteet:
+### Lähteet:
 Raportin kirjoittaminen, Tero karvinen 2006: https://terokarvinen.com/2006/raportin-kirjoittaminen-4/
 What is Free Software?, Free Software Foundation (FSF): https://www.gnu.org/philosophy/free-sw.html#four-freedoms
 Install Debian on Virtualbox - Updated 2023, Tero Karvinen: https://terokarvinen.com/2021/install-debian-on-virtualbox/
