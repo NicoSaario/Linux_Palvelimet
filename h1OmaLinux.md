@@ -38,12 +38,12 @@ Käynnistin Debianin 0.27, valitaan Live system (amd64). Käynnistys kesti noin 
 
 Pienen testailun jälkeen avasin Debian GNU/Linux Installerin työpöydältä kello 0.35.
 ## Installer
- -> American English
- Next -> Region: Europe, Zone: Helsinki
- Next -> Keyboard model Generic 105-key PC Defaulttina, Finnish ja Default -> Tässä kohtaa on myös hyvä kokeilla näppäimistön toimivuutta ja kuten kuvasta näkyy, kaikki toimi ![Nappaimistotesti](https://github.com/NicoSaario/Tunti1/assets/156778628/c45c64ec-85eb-47c7-9144-1c2e4b7ef262)
+- -> American English
+- Next -> Region: Europe, Zone: Helsinki
+- Next -> Keyboard model Generic 105-key PC Defaulttina, Finnish ja Default -> Tässä kohtaa on myös hyvä kokeilla näppäimistön toimivuutta ja kuten kuvasta näkyy, kaikki toimi ![Nappaimistotesti](https://github.com/NicoSaario/Tunti1/assets/156778628/c45c64ec-85eb-47c7-9144-1c2e4b7ef262)
 
-Next -> Erase Disk, jotta päästään turhista "roskista" eroon ja tämä poistaa kaiken virtuaalikoneelta -> Encrypt: no, koska kyseessä on virtuaalikone, Boot Loader defaulttina "Master Boot Record..."
-Next -> User-tiedot - tärkeintä, ettei ole omaa, yrityksen tai tietokoneen specksejä, koska joissain verkoissa siitä tulee julkinen verkkotunnus ja sen pystyy näkemään
+- Next -> Erase Disk, jotta päästään turhista "roskista" eroon ja tämä poistaa kaiken virtuaalikoneelta -> Encrypt: no, koska kyseessä on virtuaalikone, Boot Loader defaulttina "Master Boot Record..."
+- Next -> User-tiedot - tärkeintä, ettei ole omaa, yrityksen tai tietokoneen specksejä, koska joissain verkoissa siitä tulee julkinen verkkotunnus ja sen pystyy näkemään
 -> Summary ja pitää muistaa laittaa installer full screenille, jotta "Install-button" tulee näkyville.
 Osio kesti raporttia samalla kirjoittaessa noin 13 minuuttia. Asennus alkoi 0.52
 
