@@ -21,7 +21,7 @@
 - Lähdeviittaukset
 - Pyrkimys tehdä raportti niin, että sitä on mahdollista hyödyntää myös itse tulevaisuudessa
 
-#Linuxin asennus virtuaalikoneeseen
+# Linuxin asennus virtuaalikoneeseen
 
 Olin jo aiemmalla kurssilla ICT-infra/pilvi asentanut Oracle VM VirtualBox Managerin, mutta päivitin sen versioon 7.0.14 ja raportti on luotu sen pohjalta. Debian tuli ladattua valmiiksi tunnilla oheisesta linkistä:
 https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/ ja kyseessä debian-live-12.1.0-amd64-xfce.iso - tiedosto.
@@ -34,13 +34,16 @@ Asetin sen jo aikaisemmassa kohdassa, joten se on jo valmiiksi valittuna Storage
 ## Käynnistys
 Käynnistin Debianin 0.27, valitaan Live system (amd64). Käynnistys kesti noin 3min ja valmistui 0.30. Ei näyttänyt olevan logeissa ongelmia. Myös kuvan osoittama testi toimi.
 
-![Nappaimistotesti](https://github.com/NicoSaario/Tunti1/assets/156778628/c62a0c06-bfb3-41b8-9071-27aeb2300dbc)
+![TeroKarvinenTesti](https://github.com/NicoSaario/Tunti1/assets/156778628/5db56345-5515-4a4b-b3aa-ec688eb8df8c)
+
 
 Pienen testailun jälkeen avasin Debian GNU/Linux Installerin työpöydältä kello 0.35.
 ## Installer
 - -> American English
 - Next -> Region: Europe, Zone: Helsinki
-- Next -> Keyboard model Generic 105-key PC Defaulttina, Finnish ja Default -> Tässä kohtaa on myös hyvä kokeilla näppäimistön toimivuutta ja kuten kuvasta näkyy, kaikki toimi ![Nappaimistotesti](https://github.com/NicoSaario/Tunti1/assets/156778628/c45c64ec-85eb-47c7-9144-1c2e4b7ef262)
+- Next -> Keyboard model Generic 105-key PC Defaulttina, Finnish ja Default -> Tässä kohtaa on myös hyvä kokeilla näppäimistön toimivuutta ja kuten kuvasta näkyy, kaikki toimi
+  ![Nappaimistotesti]
+  (https://github.com/NicoSaario/Tunti1/assets/156778628/c45c64ec-85eb-47c7-9144-1c2e4b7ef262)
 
 - Next -> Erase Disk, jotta päästään turhista "roskista" eroon ja tämä poistaa kaiken virtuaalikoneelta -> Encrypt: no, koska kyseessä on virtuaalikone, Boot Loader defaulttina "Master Boot Record..."
 - Next -> User-tiedot - tärkeintä, ettei ole omaa, yrityksen tai tietokoneen specksejä, koska joissain verkoissa siitä tulee julkinen verkkotunnus ja sen pystyy näkemään
