@@ -4,7 +4,13 @@
 - $ pwd tulostaa työhakemiston
 - $ ls listaa tiedostot työhakemistossa, jos ei näy haettavaa tiedostoa tai hakemistoa, kannattaa käyttää nähdäkseen ne tiedostot, mitä se sisältää
 -  $ cd ...dir/ vaihtaa hakemiston ...dir työhakemistossa
--  $ cd vaihtaa hakemistoa, jolloin Pwd.n tulostama polku lyhenee
+-  $ cd vaihtaa hakemistoa, jolloin Pwd.n tulostama polku lyhenee "hyppää ylöspäin"
+-  $ mkdir uusikansio - uusi hakemisto, esim. kansio
+-  $ mv uusikansio vanhakansio - vaihtaa nimen
+-  $ history Näkee vanhat, tehdyt komennot
+-  $ sudo apt-get update aina ennen muita apt-komentoja, päivittää listan vapaista paketeista
+-  /var/log/ Lokit
+-  $ nano lll.txt tekstieditori, jolla voi tehdä tekstitiedostoja
 
 # Tehtävien suoritus
 Tehtävät on suoritettu Oracle VM VirtualBoxilla, taustalla Windows 11 - Home - käyttöjärjestelmä, päivitykset ajettu 28.01.2024 asti. AMD Ryzen 5 4500U, RAM 8 Gt.
