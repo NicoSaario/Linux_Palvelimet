@@ -75,10 +75,11 @@ Esimerkkinä /lib, joka sisältää kaikki järjestelmän käyttämät hyödylli
 
 /var/log/ sisältää järjestelmän laajuiset logit ja tiedostot niistä.
 
-##Grep
+## Grep
 Tässä esimerkissä käytin Greppiä hakemaan tiedostosta foo.txt hakusanalla "Aku", jolloin se printtasi takaisin "Aku Ankka".
 
 ![AkuAnkka](https://github.com/NicoSaario/Tunti1/assets/156778628/7e5d067e-8436-472e-b2c3-a6787c34b9eb)
+
 Toisessa esimerkissä käytin sitä etsimään kuviota vastaavat tiedostot, jotka sisältävät merkit "Aku"
 
 ![AkuTiedostot](https://github.com/NicoSaario/Tunti1/assets/156778628/0f7dcfdd-08d9-42d5-b4b0-f3a7e4ac4c0d)
