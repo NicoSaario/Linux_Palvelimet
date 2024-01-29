@@ -20,7 +20,8 @@ Linux ei myöskään ole entuudestaan kovinkaan tuttu, joten kaikki on tehty ens
 Asennus on toteutettu https://terokarvinen.com/2022/micro-editor-plugin-hello-world/ ohjeen mukaan. Vaihe vaiheelta, testailin ensin erilaisia komentoja, jonka jälkeen  komennot:
 - $ sudo apt-get update (päivittää käytettävissä olevien pakettien luettelon, suoritettava ennen muita apt-komentoja)
 - $ sudo apt-get -y install micro
-![oikealshw](https://github.com/NicoSaario/Tunti1/assets/156778628/e8cc6938-668c-43be-9467-c9012a2cfe3e)
+![Micro](https://github.com/NicoSaario/Tunti1/assets/156778628/7c5c0543-3c5a-4e5b-96e3-016d1d0db71b)
+
 
 ** $ sudo apt-get update ei näy kuvassa, sillä suoritin sen hetkeä aikaisemmin testatessani muita komentoja. Meni kuitenkin läpi ja toimii.
 ![Micro_Toiminnassa](https://github.com/NicoSaario/Tunti1/assets/156778628/e07064c5-4670-4720-bb52-5a0822a694a3)
@@ -29,7 +30,7 @@ Asennus on toteutettu https://terokarvinen.com/2022/micro-editor-plugin-hello-wo
 ### Koneen rauta ja lshw
 Ohjeessa oleva lshw-komento ei mennyt läpi, joten asensin lshw kyseisen linkin kautta https://www.howtogeek.com/devops/how-to-use-lshw-in-linux-with-a-practical-example/
 Totesin kuitenkin nopeasti, ettei $ sudo lshw -short -sanitize - komento toiminut, sillä asensin graafisen lshw-gtk työkalun normaalin lshw-paketin sijaan. No eipä siitä haittaakaan ole, vaikkakin graafinen vaikuttaisi näyttävän vähemmän tietoja.
-![lshw-gtk](https://github.com/NicoSaario/Tunti1/assets/156778628/e0cff8c4-19a7-4bfe-a8c6-82e9f88badd9)
+![oikealshw](https://github.com/NicoSaario/Tunti1/assets/156778628/e8cc6938-668c-43be-9467-c9012a2cfe3e)
 
 Komennolla $ sudo apt-get install lshw sen sai toimimaan komentokehotteessa.
 ![lshw](https://github.com/NicoSaario/Tunti1/assets/156778628/54e9c225-9b0d-4359-b486-8d2df7f4945a)
