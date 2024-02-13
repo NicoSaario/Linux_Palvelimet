@@ -11,11 +11,15 @@
 - sudo adduser ... käytännössä kaikki komennot nimen perään voi muokata
 - adduser nico (sudo, admin, adm)
 - Public-servereiden asennus - vaatii palomuuriin rei'än sudo ufw allow 80/tcp
-- 
 
 
 # Tehtävät - Pilvipalvelun vuokraus ja webbipalvelin
 
+### Ympäristö
+
+Tehtävät on suoritettu Oracle VM VirtualBoxilla Debian 12, taustalla Windows 11 - Home - käyttöjärjestelmä, päivitykset ajettu 13.02.2024 asti. AMD Ryzen 5 4500U, RAM 8 Gt.
+
+## Suoritus
 Valitsin DigitalOcean - palvelun GitHubin kautta. Palvelu kysyi aluksi jongenjoutavia kysymyksiä, joihin vastasin opiskelijan näkökulmasta. 
 Lopputulokseen ei näyttänyt olevan vaikutusta, sillä sain linkitettyä käyttäjän Githubin kanssa ja palvelu toimii.
 Miten liikkeelle?
