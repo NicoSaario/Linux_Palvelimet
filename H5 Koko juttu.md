@@ -48,8 +48,19 @@ Muita kohtia ei tarvitse, koska Encryptaus on fyysisille tietokoneille, ei niink
 ![k11](https://github.com/NicoSaario/Tunti1/assets/156778628/66aca1d7-4724-4965-93fd-2581fe420973)
 
 Tein raporttia ja ruokaa (pitäähän sitä syödä välillä), joten ajasta voisi ottaa noin 10 minuuttia pois, asennuksen aloitin 20:57. Todellisuudessa asetuksiin menisi noin 5 - minuuttia.
+Asennus kesti muistaakseni noin 13 minuuttia.
 
+# Virhe, jota kukaan ei toivo tai odota, lähes kaikki sen jossain kohtaa elämää onnistuvat tekemään
+Kaikki oli OK.. kunnes tein ehkä yleisimmän ja onnettomimman virheen, jonka voi tietokoneen parissa tehdä - kaadoin läppärin päälle lasillisen vettä.
+Noh.. kone on nyt kuivatuksessa, joten jouduin kaivamaan kaapista pölyjen keskeltä vanhan Lenovon läppärin.
+Lopputehtävä on siis suoritettu seuraavilla specseillä sähköpostien lukemiseen tarkoitetulla koneella:
+- Lenovo Yoga 330 kosketusnäyttö
+- Suoritin Intel(R) Celeron(R) N4000 CPU @ 1.10GHz   1.10 GHz
+- RAM 4GB
+- Windows 11 Home - päivityksiä ajan raporttia kirjoittaessa, joten 26.02 asti
 
+## Uusi alku
+Latasin VirtualBoxin kyseisestä linkistä: https://www.virtualbox.org/wiki/Downloads, VirtualBox 7.0.14 platform packages Windwsille.
   
 
 
