@@ -4,7 +4,10 @@ Asennetaan uusi, tyhjä virtuaalikone ja tehdään siihen Apache-webbipalvelin j
 Etusivu weppialvelimelle, jolle normaalikäyttäjän oikeudet.
 
 ### Tehtävien suoritus
-Tehtävät on suoritettu Oracle VM VirtualBoxilla, taustalla Windows 11 - Home - käyttöjärjestelmä, päivitykset ajettu 26.02.2024 asti. AMD Ryzen 5 4500U, RAM 8 Gt. 
+Tehtävät on suoritettu Oracle VM VirtualBoxilla, taustalla Windows 11 - Home - käyttöjärjestelmä, päivitykset ajettu 26.02.2024 asti. AMD Ryzen 5 4500U, RAM 8 Gt. Aika:
+Itä-Euroopan normaaliaika
+Aikavyöhyke: Suomi (UTC+2)
+maanantaina, 26. helmikuuta 2024
 
 ## Uuden virtuaalikoneen asennus
 Tein asennuksen vanhan ohjeeni mukaan sekä varmistin asetusten oikeellisuuden sivulta https://terokarvinen.com/2021/install-debian-on-virtualbox/.
@@ -24,3 +27,35 @@ Käytännössä ainoat muutokset:
 - Muut default
   Lopputulos:
   ![k4](https://github.com/NicoSaario/Tunti1/assets/156778628/6ab6dd15-6b66-49e0-b45f-5a6fd1f1af5f)
+  Muutoksissa meni karkeasti noin 5 min. 
+
+Käynnistyksessä ei näkynyt virhelogeja. Seuraavaksi testataan, että kaikki toimii. Testi osoittaa näppäimistön, hiiren, netin sekä näytön toimivuuden.
+![k5](https://github.com/NicoSaario/Tunti1/assets/156778628/73f976eb-ad24-4e39-bd57-53c383e6ef23)
+
+Seuraavaksi klo 20:38 alkaa Debianin asentelu työpöydältä Install Debian:
+- Valitaan American English (automaattisesti)
+![k6](https://github.com/NicoSaario/Tunti1/assets/156778628/e31ec90f-d1f2-4cfc-ae50-e2c6731c8b3d)
+- Pistetään Suomi maailmankartalle
+  ![k7](https://github.com/NicoSaario/Tunti1/assets/156778628/817c5a31-cf55-4ce0-b8df-9415a8466083)
+- Koska ollaan Suomessa, Näppäimistö Generic 105-key PC, Finnish ja Default. Testataan myös ääkkösten ja merkkien toimivuus.
+![k8](https://github.com/NicoSaario/Tunti1/assets/156778628/98665290-141f-42db-b87f-445027f5e1d1)
+- Poistellaan ylimääräiset roskat ja käytännössä kaikki virtuaalilevyltä
+  ![k9](https://github.com/NicoSaario/Tunti1/assets/156778628/2ec5dcd9-e506-4789-a5df-8ed7544b5685)
+Muita kohtia ei tarvitse, koska Encryptaus on fyysisille tietokoneille, ei niinkään virutaalikoneille. Master Boot Record hämää ja sen defaulttina vaihtaminen vain rikkoo asioita
+- Oma nimi, kirjautumisnimi (lowercase, lyhyt!!) käyttäjä jota ei voi sitoa mihinkään, koska siitä tulee Public Domain Name, VAHVA SALASANA, Log in autom..
+  ![k10](https://github.com/NicoSaario/Tunti1/assets/156778628/25506aa4-5985-4a6c-8110-66f858c7955d)
+- Summary ja Install
+![k11](https://github.com/NicoSaario/Tunti1/assets/156778628/66aca1d7-4724-4965-93fd-2581fe420973)
+
+Tein raporttia ja ruokaa (pitäähän sitä syödä välillä), joten ajasta voisi ottaa noin 10 minuuttia pois, asennuksen aloitin 20:57. Todellisuudessa asetuksiin menisi noin 5 - minuuttia.
+
+
+  
+
+
+  
+  
+
+
+
+  
