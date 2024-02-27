@@ -30,6 +30,7 @@ Käytännössä ainoat muutokset:
   Muutoksissa meni karkeasti noin 5 min. 
 
 Käynnistyksessä ei näkynyt virhelogeja. Seuraavaksi testataan, että kaikki toimii. Testi osoittaa näppäimistön, hiiren, netin sekä näytön toimivuuden.
+
 ![k5](https://github.com/NicoSaario/Tunti1/assets/156778628/73f976eb-ad24-4e39-bd57-53c383e6ef23)
 
 Seuraavaksi klo 20:38 alkaa Debianin asentelu työpöydältä Install Debian:
@@ -42,7 +43,7 @@ Seuraavaksi klo 20:38 alkaa Debianin asentelu työpöydältä Install Debian:
 - Poistellaan ylimääräiset roskat ja käytännössä kaikki virtuaalilevyltä
   ![k9](https://github.com/NicoSaario/Tunti1/assets/156778628/2ec5dcd9-e506-4789-a5df-8ed7544b5685)
 Muita kohtia ei tarvitse, koska Encryptaus on fyysisille tietokoneille, ei niinkään virutaalikoneille. Master Boot Record hämää ja sen defaulttina vaihtaminen vain rikkoo asioita
-- Oma nimi, kirjautumisnimi (lowercase, lyhyt!!) käyttäjä jota ei voi sitoa mihinkään, koska siitä tulee Public Domain Name, VAHVA SALASANA, Log in autom..
+- Oma nimi, kirjautumisnimi (lowercase, lyhyt!!) käyttäjä jota ei voi sitoa mihinkään, koska siitä tulee Public Domain Name, VAHVA SALASANA, Log in autom.. (EDIT=VIRHE!! EI NÄIN. TÄPPÄ POIS)
   ![k10](https://github.com/NicoSaario/Tunti1/assets/156778628/25506aa4-5985-4a6c-8110-66f858c7955d)
 - Summary ja Install
 ![k11](https://github.com/NicoSaario/Tunti1/assets/156778628/66aca1d7-4724-4965-93fd-2581fe420973)
@@ -67,7 +68,7 @@ Lopputehtävä on siis suoritettu seuraavilla specseillä sähköpostien lukemis
  ![k1](https://github.com/NicoSaario/Tunti1/assets/156778628/0c500788-9790-4f28-b872-0d4e901e5520)
 ![k2](https://github.com/NicoSaario/Tunti1/assets/156778628/8b41ad9f-f628-47b5-bb61-5187edbd1997)
 ![k3](https://github.com/NicoSaario/Tunti1/assets/156778628/e0e75579-7644-429d-9927-ea7349e4554f)
-- Versio on vähän muuttanut asennuksen käyttöliittymää ja siirryttiin suoraan ilmeisesti Debianin asennukseen. Ensiksi säikähdin niin maan pirusti, kun käyttöliittymä muuttui CLI:ksi ja tietokoneen äänet täysillä alkoi kyselemään asennettavaa kieltä. Ajattelin, että käytän mieluummin Graafista käyttöliittymää jos mahdollista ja käynnistin koneen uudelleen.
+- Versio on vähän muuttanut asennuksen käyttöliittymää ja siirryttiin suoraan ilmeisesti Debianin asennukseen. Ensiksi säikähdin niin maan pirusti, kun käyttöliittymä muuttui CLI:ksi ja tietokoneen äänet täysillä alkoi kyselemään asennettavaa kieltä. Ajattelin, että käytän mieluummin Graafista käyttöliittymää jos mahdollista ja käynnistin koneen uudelleen, jolloin pystyin valitsemaan sen manuaalisesti.
  ![k4](https://github.com/NicoSaario/Tunti1/assets/156778628/dc03937b-c1d4-4163-98c4-6dc687e94a14)
 - Seuraavaksi kysyttiin kieltä, johon valitsin oletuksen. Seuraavana kysyttiin sijaintia, josta hain "other - Finland" ja näppäimistöksi myös Finnish. Siinä mielessä ihan kiva, jos ei tunne maailman kartastoa eikä löydä Helsinkiä kartalta.
 ![k5](https://github.com/NicoSaario/Tunti1/assets/156778628/98e9c018-81ba-4389-bb0a-8ac1f6921316)
@@ -101,7 +102,11 @@ Lopputehtävä on siis suoritettu seuraavilla specseillä sähköpostien lukemis
   ![k23](https://github.com/NicoSaario/Tunti1/assets/156778628/0e638dc3-7993-4ba8-b83d-223bba8cd283)
 - Installing software alkoi 02.57 ja päättyi 02.57, jonka jälkeen kysyttiin softwaren asentelua valmiiksi, valitsin kaikki ihan testimielessä ja tutustuakseni eri softiin. Nopealla Googlauksella vaikutti ihan järkevältä.
 ![k24](https://github.com/NicoSaario/Tunti1/assets/156778628/0c471ce9-369b-406a-856a-6ff76cc4ad12)
-- Koko prosessi vei huomattavasti aikaisempia töitä enemmän aikaa. Toki siihen liittyy kaikki tulleet muutokset ja selvittäminen, mutta käsittääkseni tämä säästää aikaa jatkossa. Install alkoi 03.00
-  
+- Koko prosessi vei huomattavasti aikaisempia töitä enemmän aikaa. Toki siihen liittyy kaikki tulleet muutokset ja selvittäminen, mutta käsittääkseni tämä säästää aikaa jatkossa. Install alkoi 03.00, asennuksessa on kesto mukana, mutta siihen ei kauheasti ole luottamista - asennus keskeytyi jälleen noin 5-minuutin jlken uudella kysymyksellä: 
+![k25](https://github.com/NicoSaario/Tunti1/assets/156778628/26307d48-80eb-4b92-bfce-8f2039253acf)
+- Ilmeisesti aikaisemmin valitsemani softien joukossa oli kolme eri Display Manageria ja jouduin googlettamaan järkevimmän ratkaisun, joista parhaat kaksi vaihtoehtoa oli useiden eri lähteiden perusteella itselleni koneesta johtuen joko sddm tai lightdmm, jonka jälkeen keveys houkutti. Valitsin siis lightdmm, jonka toki voi vaihtaa halutessaan.
+![k26](https://github.com/NicoSaario/Tunti1/assets/156778628/f7931b9e-922f-4c4f-a0ed-30909465861e)
+
+
 
 
