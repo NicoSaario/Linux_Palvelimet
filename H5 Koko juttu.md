@@ -53,17 +53,54 @@ Asennus kesti muistaakseni noin 13 minuuttia.
 
 # Virhe, jota kukaan ei toivo tai odota, lähes kaikki sen jossain kohtaa elämää onnistuvat tekemään
 Kaikki oli OK.. kunnes tein ehkä yleisimmän ja onnettomimman virheen, jonka voi tietokoneen parissa tehdä - kaadoin läppärin päälle lasillisen vettä.
-Noh.. kone on nyt kuivatuksessa, joten jouduin kaivamaan kaapista pölyjen keskeltä vanhan Lenovon läppärin.
+Noh.. kone on nyt kuivatuksessa, joten jouduin kaivamaan kaapista pölyjen keskeltä vanhan, onnettoman sekä päivittämättömän Lenovon läppärin.
+ ![1000013248](https://github.com/NicoSaario/Tunti1/assets/156778628/dc3aae56-25ac-4634-bfc8-101b0f9d7926)
 Lopputehtävä on siis suoritettu seuraavilla specseillä sähköpostien lukemiseen tarkoitetulla koneella:
 - Lenovo Yoga 330 kosketusnäyttö
 - Suoritin Intel(R) Celeron(R) N4000 CPU @ 1.10GHz   1.10 GHz
 - RAM 4GB
 - Windows 11 Home - päivityksiä ajan raporttia kirjoittaessa, joten 26.02 asti
 
-## Uusi alku
+## Uusi alku - kertaus on opintojen äiti
 - Latasin VirtualBoxin kyseisestä linkistä: https://www.virtualbox.org/wiki/Downloads, VirtualBox 7.0.14 platform packages Windwsille.
-  ![1000013248](https://github.com/NicoSaario/Tunti1/assets/156778628/dc3aae56-25ac-4634-bfc8-101b0f9d7926)
-- Latasin ISO-tiedoston https://terokarvinen.com/2021/install-debian-on-virtualbox/ linkistä, mutta 
+- Latasin ISO-tiedoston https://terokarvinen.com/2021/install-debian-on-virtualbox/ linkistä ja version 12.5.0-amd64-xface(.)iso
+- Suosittelen olemaan tarkkana siitä, minkä version lataa ja minkä parissa on tuttu työskennellä. Valitsin ajatuksissani tuosta tietokoneen kastumisesta väärän version ja hakkasin päätä seinään tuntemattoman version johdosta. Siitä löytyy oma md, jos sitä ihmettelyä haluaa lukea. Tajusin kuitenkin vasta silloin, että isoin merkitys taisi olla tuo xface, joka luo tämän kyseisen käyttöliittymän ja tekee itse asentamisen helpommaksi/yksinkeraisemmaksi. Turhaa aikaa meni noin 2 - tuntia, sillä halusin yrittää saada sen toimimaan. Lopputuloksena black screen ja koneen poisto.
+- Jouduin vähän muokkaamaan asetuksia koneesta johtuen. Pitäisi silti olla mahdollista pärjätä näillä.
+  ![K1](https://github.com/NicoSaario/Tunti1/assets/156778628/269da23c-11d9-43fd-89f3-d60d68a3e678)
+  - Jälleen uusi testi
+![k2](https://github.com/NicoSaario/Tunti1/assets/156778628/6c55f93e-5199-4f85-85f3-ca35aea01f81)
+- Toimii.. eteenpäin
+- Tismalleen samat asetukset, kuin aiemmin. En rupea uudestaan niitä luettelemaan. Aloitin 04.51 asennuksen ja se päättyi 05.14.
+- Kirjautuminen sisään
+- Testi
+![k3](https://github.com/NicoSaario/Tunti1/assets/156778628/0cb64df8-a8a4-408c-b261-8e899177e5ce)
+Asennetaan apache2
+- sudo apt-get update
+- sudo apt-get -y install apache2
+Palomuurin asennus ja päälle
+- sudo apt-get -y install ufw
+- sudo ufw enable
+- Restart
+Webbipalvelin ja vanha pois päältä
+- sudo a2dissite 000-default.conf
+- systemctl restart apache2
+- Tehdään ohjeiden mukaan New Name Based Virtual Host https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/
+- sudoedit /etc/apache2/sites-available/kukko.example.com.conf
+- Lyödään linkistä löytyvät tavarat sisään
+  ![k4](https://github.com/NicoSaario/Tunti1/assets/156778628/5f29bcf0-bc0e-47c2-bc1b-5035ddde8037)
+Otetaan käyttöön:
+- sudo a2ensite kukko.example.com.conf
+- sudo systemctl restart apache2
+![k5](https://github.com/NicoSaario/Tunti1/assets/156778628/f6735052-4cac-4d86-92ce-6d4f663a819c)
+- Vähän meni nyt kikkailuksi ja tein vanhasta muistista aluksi hattu.com directoryn, joten jouduin käyttämään rmdir -komentoa
+- Tämän jälkeen kotihakemistoon ja tein mkdir publicweb, jonka jälkeen tein vielä erikseen kukko.example.com. Olisi voinut tehdä molemat toki kerralla.
+![publicweb](https://github.com/NicoSaario/Tunti1/assets/156778628/76842a9b-225c-4e85-9e6e-ce02489aacb0)
+
+- On kai myönnettävä nyt tappio tältä erää, sillä oppitunti alkaa hetken päästä. On fakta, että tuli aloitettua työ liian myöhään, mutta tuo läppäri + vesi oli kyllä kieltämättä vähän odottamaton yhdistelmä ja pisti aikataulunkin sekaisin.
+- Joudun siis jatkamaan tästä myöhemmin..
+
+
+
 
 
 
