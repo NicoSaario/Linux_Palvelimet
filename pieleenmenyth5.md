@@ -42,3 +42,4 @@ valitsin uusimman version 12.5.0
 - Ilmeisesti aikaisemmin valitsemani softien joukossa oli kolme eri Display Manageria ja jouduin googlettamaan järkevimmän ratkaisun, joista parhaat kaksi vaihtoehtoa oli useiden eri lähteiden perusteella itselleni koneesta johtuen joko sddm tai lightdmm, jonka jälkeen keveys houkutti. Valitsin siis lightdmm, jonka toki voi vaihtaa halutessaan.
 ![k26](https://github.com/NicoSaario/Tunti1/assets/156778628/f7931b9e-922f-4c4f-a0ed-30909465861e)
 - Jälkiviisaus on se paras viisaus. Asennukseen mennyt kohta tunti eikä loppua näy. Taitaa valitsemat softat ja niiden paketit kestää aika tavalla.
+- Huomasin ladanneeni kokonaan väärän tiedoston.
