@@ -93,7 +93,7 @@ Otetaan käyttöön:
 - sudo systemctl restart apache2
 ![k5](https://github.com/NicoSaario/Tunti1/assets/156778628/f6735052-4cac-4d86-92ce-6d4f663a819c)
 - Vähän meni nyt kikkailuksi ja tein vanhasta muistista aluksi hattu.com directoryn, joten jouduin käyttämään rmdir -komentoa
-- Tämän jälkeen kotihakemistoon ja tein mkdir publicweb, jonka jälkeen tein vielä erikseen kukko.example.com. Olisi voinut tehdä molemat toki kerralla.
+- Tämän jälkeen kotihakemistoon ja tein mkdir publicweb, jonka jälkeen tein vielä erikseen kukko.example.com. Olisi voinut tehdä molemmat toki kerralla.
 ![publicweb](https://github.com/NicoSaario/Tunti1/assets/156778628/76842a9b-225c-4e85-9e6e-ce02489aacb0)
 
 - On kai myönnettävä nyt tappio tältä erää, sillä oppitunti alkaa hetken päästä. On fakta, että tuli aloitettua työ liian myöhään, mutta tuo läppäri + vesi oli kyllä kieltämättä vähän odottamaton yhdistelmä ja pisti aikataulunkin sekaisin.
