@@ -8,6 +8,7 @@ Tehtävät on suoritettu Oracle VM VirtualBoxilla, taustalla Windows 11 - Home -
 Itä-Euroopan normaaliaika
 Aikavyöhyke: Suomi (UTC+2)
 maanantaina, 26. helmikuuta 2024
+- Tehtävästä löytyy 2 erilaista markdownia, sillä jouduin tekemään puhtaan suorituksen 3 kertaa uudelleen samalla raportoiden. Ensimmäisellä kerralla kastui läppäri, toisella kerralla varatietokone sanoi sopimuksen irti. Tämä on siis kolmas raportointiyritys
 
 ## Uuden virtuaalikoneen asennus
 Tein asennuksen vanhan ohjeeni mukaan sekä varmistin asetusten oikeellisuuden sivulta https://terokarvinen.com/2021/install-debian-on-virtualbox/.
@@ -91,6 +92,11 @@ Korjataan muutama juttu, eli tehdään muutama reikä https://terokarvinen.com/2
 - sudo ufw enable
 - systemctl status ufw
 ![status_ssh](https://github.com/NicoSaario/Tunti1/assets/156778628/8a356861-fcc9-4aef-9fd8-01132d466a29)
+- otetaan yhteys DigitalOceaniin
+- ssh root@dropletip
+- ![avain](https://github.com/NicoSaario/Tunti1/assets/156778628/b0d1a584-c682-4dd2-b6cb-e7d3fcb076b3)
+- Kaikki meni läpi ja sain avaimen tehtyä, mutta nyt ongelmaksi muodostui se, etten pääse kirjautumaan nico@localhostina
+- Selvitellyt noin 2h vikaa ja ongelmaan ei ole vielä löytynyt vastausta.
 
 
 
