@@ -51,53 +51,51 @@ Muita kohtia ei tarvitse, koska Encryptaus on fyysisille tietokoneille, ei niink
 Tein raporttia ja ruokaa (pitäähän sitä syödä välillä), joten ajasta voisi ottaa noin 10 minuuttia pois, asennuksen aloitin 20:57. Todellisuudessa asetuksiin menisi noin 5 - minuuttia.
 Asennus kesti muistaakseni noin 13 minuuttia.
 
-# Virhe, jota kukaan ei toivo tai odota, lähes kaikki sen jossain kohtaa elämää onnistuvat tekemään
-Kaikki oli OK.. kunnes tein ehkä yleisimmän ja onnettomimman virheen, jonka voi tietokoneen parissa tehdä - kaadoin läppärin päälle lasillisen vettä.
-Noh.. kone on nyt kuivatuksessa, joten jouduin kaivamaan kaapista pölyjen keskeltä vanhan, onnettoman sekä päivittämättömän Lenovon läppärin.
- ![1000013248](https://github.com/NicoSaario/Tunti1/assets/156778628/dc3aae56-25ac-4634-bfc8-101b0f9d7926)
-Lopputehtävä on siis suoritettu seuraavilla specseillä sähköpostien lukemiseen tarkoitetulla koneella:
-- Lenovo Yoga 330 kosketusnäyttö
-- Suoritin Intel(R) Celeron(R) N4000 CPU @ 1.10GHz   1.10 GHz
-- RAM 4GB
-- Windows 11 Home - päivityksiä ajan raporttia kirjoittaessa, joten 26.02 asti
 
-## Uusi alku - kertaus on opintojen äiti
-- Latasin VirtualBoxin kyseisestä linkistä: https://www.virtualbox.org/wiki/Downloads, VirtualBox 7.0.14 platform packages Windwsille.
-- Latasin ISO-tiedoston https://terokarvinen.com/2021/install-debian-on-virtualbox/ linkistä ja version 12.5.0-amd64-xface(.)iso
-- Suosittelen olemaan tarkkana siitä, minkä version lataa ja minkä parissa on tuttu työskennellä. Valitsin ajatuksissani tuosta tietokoneen kastumisesta väärän version ja hakkasin päätä seinään tuntemattoman version johdosta. Siitä löytyy oma md, jos sitä ihmettelyä haluaa lukea. Tajusin kuitenkin vasta silloin, että isoin merkitys taisi olla tuo xface, joka luo tämän kyseisen käyttöliittymän ja tekee itse asentamisen helpommaksi/yksinkeraisemmaksi. Turhaa aikaa meni noin 2 - tuntia, sillä halusin yrittää saada sen toimimaan. Lopputuloksena black screen ja koneen poisto.
-- Jouduin vähän muokkaamaan asetuksia koneesta johtuen. Pitäisi silti olla mahdollista pärjätä näillä.
-  ![K1](https://github.com/NicoSaario/Tunti1/assets/156778628/269da23c-11d9-43fd-89f3-d60d68a3e678)
-  - Jälleen uusi testi
-![k2](https://github.com/NicoSaario/Tunti1/assets/156778628/6c55f93e-5199-4f85-85f3-ca35aea01f81)
-- Toimii.. eteenpäin
-- Tismalleen samat asetukset, kuin aiemmin. En rupea uudestaan niitä luettelemaan. Aloitin 04.51 asennuksen ja se päättyi 05.14.
-- Kirjautuminen sisään
-- Testi
-![k3](https://github.com/NicoSaario/Tunti1/assets/156778628/0cb64df8-a8a4-408c-b261-8e899177e5ce)
-Asennetaan apache2
-- sudo apt-get update
-- sudo apt-get -y install apache2
-Palomuurin asennus ja päälle
-- sudo apt-get -y install ufw
+## Apache2
+Aloitetaan asentamalla apache2
+- ensin aina sudo apt-get update, jotta voidaan asennella tavaraa
+- sudo apt-get install apache2
+- Saadaan apachen Default-sivu näkyviin
+![apache2](https://github.com/NicoSaario/Tunti1/assets/156778628/acca735f-112b-4b8a-9bce-e23f8f5e2123)
+Aikaisemman ohjeeni mukaan otetaan ensin default-sivu pois päältä
+- cd /etc/apache2/sites-enabled
+- sudo a2dissite 000-default 
+Laitellaan esimerkkisivu
+- EDITOR=micro sudoedit /etc/apache2/sites-available/kukko.example.com.conf
+  ![tiedosto](https://github.com/NicoSaario/Tunti1/assets/156778628/98bcdcec-4037-45a5-91aa-d52d26ecb492)
+  - sudo a2ensite kukko.example.com.conf eli laitetaan se päälle
+  - Restarttia apachelle sudo systemctl restart apache2
+  ![hyvähyvä](https://github.com/NicoSaario/Tunti1/assets/156778628/ade419dc-f8fc-41a3-bc32-2d6157669918)
+Huomasin, että laitoin vahingossa väärän polun kansioille, joten korjasin sekä kukko.example.com.conf, että publicsites - kansion osoittamaan /home/nico sen sijaan, että olisi polku /home/kana
+- mkdir -p /home/nico/publicsites/kukko.example.com/
+- Navigoidaan kansioon kukko.example.com/
+Luodaan html - tiedosto
+- micro index.html
+- Teksti mahd. simppeli
+- Lopputulos:
+![toimiiii](https://github.com/NicoSaario/Tunti1/assets/156778628/1aef4d43-e641-4a38-9cd2-4ac274b028cb)
+![ennenSSH](https://github.com/NicoSaario/Tunti1/assets/156778628/db669d7d-e264-4edc-8305-c7583e915eba)
+- Asensin siis puuttuvan SSH-serverin aikaisemman ohjeeni mukaan
+- https://github.com/NicoSaario/Tunti1/blob/main/h4%20Maailma%20kuulee.md
+- Testasin sen toimivuuden komennolla systemctl status ssh
+- ![statusssh](https://github.com/NicoSaario/Tunti1/assets/156778628/2daeca5e-9932-4bde-981b-b85b704411e2)
+Kaikki näyttää olevan kunnossa. Olisi pitänyt tehdä jo aikaisemmin, mutta nyt palomuurin kimppuun:
+Asennetaan se
+- sudo apt install ufw
+- systemctl status ufw - tällä hetkellä inactive (dead)
+Korjataan muutama juttu, eli tehdään muutama reikä https://terokarvinen.com/2016/instant-firewall-sudo-ufw-enable/?fromSearch=firewall ohjeen mukaan
+- sudo ufw allow 22/tcp - SSH
+- sudo ufw allow 80/tcp - normaali http
+- sudo ufw allow 443/tcp - encryptattu https
 - sudo ufw enable
-- Restart
-Webbipalvelin ja vanha pois päältä
-- sudo a2dissite 000-default.conf
-- systemctl restart apache2
-- Tehdään ohjeiden mukaan New Name Based Virtual Host https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/
-- sudoedit /etc/apache2/sites-available/kukko.example.com.conf
-- Lyödään linkistä löytyvät tavarat sisään
-  ![k4](https://github.com/NicoSaario/Tunti1/assets/156778628/5f29bcf0-bc0e-47c2-bc1b-5035ddde8037)
-Otetaan käyttöön:
-- sudo a2ensite kukko.example.com.conf
-- sudo systemctl restart apache2
-![k5](https://github.com/NicoSaario/Tunti1/assets/156778628/f6735052-4cac-4d86-92ce-6d4f663a819c)
-- Vähän meni nyt kikkailuksi ja tein vanhasta muistista aluksi hattu.com directoryn, joten jouduin käyttämään rmdir -komentoa
-- Tämän jälkeen kotihakemistoon ja tein mkdir publicweb, jonka jälkeen tein vielä erikseen kukko.example.com. Olisi voinut tehdä molemmat toki kerralla.
-![publicweb](https://github.com/NicoSaario/Tunti1/assets/156778628/76842a9b-225c-4e85-9e6e-ce02489aacb0)
+- systemctl status ufw
+![status_ssh](https://github.com/NicoSaario/Tunti1/assets/156778628/8a356861-fcc9-4aef-9fd8-01132d466a29)
 
-- On kai myönnettävä nyt tappio tältä erää, sillä oppitunti alkaa hetken päästä. On fakta, että tuli aloitettua työ liian myöhään, mutta tuo läppäri + vesi oli kyllä kieltämättä vähän odottamaton yhdistelmä ja pisti aikataulunkin sekaisin.
-- Joudun siis jatkamaan tästä myöhemmin..
+
+
+
+
 
 
 
