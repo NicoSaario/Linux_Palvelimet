@@ -106,8 +106,8 @@ Korjataan muutama juttu, eli tehdään muutama reikä https://terokarvinen.com/2
 - 10 minuuttia myöhemmin ymmärsin vihdoin kirjautua luomani käyttäjän salasanalla ja VIHDOIN! Homma rullaa.
 - ![vihdoin](https://github.com/NicoSaario/Tunti1/assets/156778628/0e3cf953-0dc2-46c1-9e69-a90bc7b8a81a)
 - Sitten potkitaankin roottikäyttäjä pois, avataan toki ensin uusi Terminaali, jotta varmistutaan siitä, että on pääsy edes jollain käyttäjällä
-
-
+- Ennen sitä testasin pikaisesti, että sivu on aktiivinen ja toimii. Siltä näyttää!
+![sekavaseiska](https://github.com/NicoSaario/Tunti1/assets/156778628/89714225-684d-4853-ba4c-e6cef2cc6be1)
 
 
 
