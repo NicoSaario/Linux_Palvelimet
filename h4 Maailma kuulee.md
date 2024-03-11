@@ -77,6 +77,28 @@ Asennetaan Apache2 aikaisempien tehtävien perusteella
 - avasin selaimella palvelimen ip-osoitteen 188.166.27.117, josta tuli Apache2 default-sivu. Hyvin menee siis!
 - Sain näkyviin pelkän "Default"-tekstin sivustolle, mutta joudun palaamaan tehtävään hieman myöhemmin ja suorittamaan loput tehtävät myöhemmin.
 
+* Edit 11.03.2024
+## Domain
+Vihdoin tuumasta toimeen, sain NameCheapin ja GitHubin yhteistyöllä vuokrattua NameCheapista ilmaisen Domainin sekavaseiska.me harjoituksen vuoksi. Olisin mielelläni oman sukunimen valinnut, mutta tekohetkellä näytti sen verran hintavalta, että jäi haaveeksi. Koko prosessi meni suht nopeasti - yhdistä GitHub NameCheapin kanssa, hae vapaana oleva .me-osoite, täytä yhteystiedot ja domain on valmiina varattuna.
+Nyt pitää yhdistää DigitalOceanin kanssa.
+
+Noudatan Susannan lähteessä olevaa ohjetta
+- Domain List - valitaan valittu domain
+![namecheap](https://github.com/NicoSaario/Tunti1/assets/156778628/e0838b9c-4abc-4432-b1fe-8fe0ea8ddc86)
+- Ohjeen mukaaan Advanced DNS ja Host Record, kaikki tietueet voi poistaa. Samoin CNAME
+- Laitoin A Recordin ohjaamaan DigitalOceanin IP-osoitteeseen ja TTL-5 min, jotta haettavia tietoja haetaan 5 minuutin välein.
+- Siirrytään takaisin virtuaalikoneelle
+- Editointivaiheessa olin luonut jo uuden virtuaalikoneen H5 - tehtävään ja siksi kaikki nimet ym. ovat eri, kuin aikaisemmin näytettynä ja olin tehnyt alkutoimenpiteet SSH - yhteydelle sekä webbipalvelimelle https://github.com/NicoSaario/Tunti1/blob/main/H5%20Koko%20juttu.md
+- Ollaan siis tilanteessa, jossa lisäillään käyttäjä
+- sudo adduser nico @vahva salasana ja oikea nimi, muut tyhjäksi
+- sudo adduser nico sudo
+- sudo adduser nico adm
+- ![kiinni](https://github.com/NicoSaario/Tunti1/assets/156778628/d14cf4ff-4195-4d53-a81a-5b5018a55a5c)
+- Pääsin kiinni ssh-yhteydellä virtuaalipalvelimeen komennolla ssh nico@dropletip
+- Ratkesi myös vanha ongelma, joka oli tehtävässä H5
+- ![kiinni](https://github.com/NicoSaario/Tunti1/assets/156778628/a2c08c12-8585-4b24-8243-73defab86d16)
+
+
   
 ### Lähteet
 - Teoriasta käytäntöön pilvipalvelimen avulla (h4)
