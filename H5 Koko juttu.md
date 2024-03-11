@@ -99,6 +99,11 @@ Korjataan muutama juttu, eli tehdään muutama reikä https://terokarvinen.com/2
 - Selvitellyt noin 2h vikaa ja ongelmaan ei ole vielä löytynyt vastausta.
 
 
+### Edit 11.03.2024
+- Sain vihdoin NameCheapin kautta itselleni Domainin ja editoin tehtävää H4, jolloin tajusin missä meni vikaan.
+- Lisäämällä käyttäjät, pääsin käsiksi SSH-yhteydellä ja pystyin käyttämään ssh nico@dropletip - komentoa
+- Nyt olen siellä kiinni, mutta ssh-copy-id ei vieläkään syystä tai toisesta toimi...
+
 
 
 
