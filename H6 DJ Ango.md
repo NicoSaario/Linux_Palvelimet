@@ -4,7 +4,7 @@
 Tehtävät on suoritettu Oracle VM VirtualBoxilla, taustalla Windows 11 - Home - käyttöjärjestelmä, päivitykset ajettu 14.03.2024 asti. AMD Ryzen 5 4500U, RAM 8 Gt. Aika: Itä-Euroopan normaaliaika Aikavyöhyke: Suomi (UTC+2) 14.03.2024
 
 ## Tiivistelmä
-- Tehtävänä tiivistää seuraavat artikkelit muutamalla omalla huomiolla:
+Tehtävänä tiivistää seuraavat artikkelit muutamalla omalla huomiolla:
 - https://terokarvinen.com/2022/django-instant-crm-tutorial/
 - https://terokarvinen.com/2022/deploy-django/
 - Artikkelit liittyvät vahvasti toisiinsa
