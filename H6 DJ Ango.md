@@ -85,5 +85,44 @@ micro kukkoko/settings.py
 ```
 - Mennään muokkaamaan Installed_Apps alapuolelle ja lisätään CRM kuvan mukaisesti
 - ![kukkosettings](https://github.com/NicoSaario/Linux_Palvelimet/assets/156778628/d309aab4-6753-4b53-a76b-06121290ee88)
+- Ymmärsin, että seuraavat komennot tekevät mallin ja lisätään esimerkiksi admin sekä asiakas, jossa "class" tekee  taulukon nimisarakkeella
+```
+micro crm/models.py
+```
+```
+class Customer(models.Model):
+   name = models.CharField(max_length=300)
+```
+```
+./manage.py makemigrations
+./manage.py migrate
+
+```
+# Jotta näkee tietokannan adminissa, pitää rekisteröidä komennolla
+micro crm/admin.py
+```
+- Tässä kohtaa en saanut runserveriä päälle, ratkaisin kuitenkin nopeasti ongelman lukemalla logia ja tajuamalla, että olin unotanut lisätä form . import models, kuten alla on
+![error](https://github.com/NicoSaario/Linux_Palvelimet/assets/156778628/dcf5cc5d-83d8-4f97-a92b-b50edd262145)
+
+```
+from . import models
+admin.site.register(models.Customer)
+```
+- Nyt homma rullaa ja CRM Customers on näkyvillä
+![crm_customers](https://github.com/NicoSaario/Linux_Palvelimet/assets/156778628/73195282-f3eb-4306-9d4a-17b55c086bed)
+- Testaillaan hieman ja lisätään sekä poistetaan asiakkaita. Simppelisti "CRM - +add - name - save"
+- Poistetaan "Valitaan lisätty customer - delete - yes I'm sure"
+- Listataan nimet
+```
+micro crm/models.py
+```
+- Ongelmaa tuli nyt siinä, että ohjeen mukainen crm - tiedoston muokkaus antaa virheilmoituksia ja yritän sitä tässä korjailla. runserver ei siis toistaiseksi toimi uusilla konffeilla
+- Oli vaihteeksi mennyt jotain copypastessa vihkoon,  mutta nyt näyttää kaikki toimivan
+![toimiitoimii](https://github.com/NicoSaario/Linux_Palvelimet/assets/156778628/ff1e0a0d-f38d-4d10-a90c-905db8ca44b1)
+
+## Tuotantoon
+- 
+
+
 
   
