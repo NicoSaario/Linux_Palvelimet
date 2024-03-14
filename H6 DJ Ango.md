@@ -89,18 +89,22 @@ micro kukkoko/settings.py
 ```
 micro crm/models.py
 ```
+
 ```
 class Customer(models.Model):
    name = models.CharField(max_length=300)
 ```
+
 ```
 ./manage.py makemigrations
 ./manage.py migrate
+```
 
 ```
 # Jotta näkee tietokannan adminissa, pitää rekisteröidä komennolla
 micro crm/admin.py
 ```
+
 - Tässä kohtaa en saanut runserveriä päälle, ratkaisin kuitenkin nopeasti ongelman lukemalla logia ja tajuamalla, että olin unotanut lisätä form . import models, kuten alla on
 ![error](https://github.com/NicoSaario/Linux_Palvelimet/assets/156778628/dcf5cc5d-83d8-4f97-a92b-b50edd262145)
 
@@ -108,6 +112,7 @@ micro crm/admin.py
 from . import models
 admin.site.register(models.Customer)
 ```
+
 - Nyt homma rullaa ja CRM Customers on näkyvillä
 ![crm_customers](https://github.com/NicoSaario/Linux_Palvelimet/assets/156778628/73195282-f3eb-4306-9d4a-17b55c086bed)
 - Testaillaan hieman ja lisätään sekä poistetaan asiakkaita. Simppelisti "CRM - +add - name - save"
@@ -121,7 +126,8 @@ micro crm/models.py
 ![toimiitoimii](https://github.com/NicoSaario/Linux_Palvelimet/assets/156778628/ff1e0a0d-f38d-4d10-a90c-905db8ca44b1)
 
 ## Tuotantoon
-- 
+- Noudatin https://terokarvinen.com/2022/deploy-django/ ohjeita, mutta törmäsin muutamaan ongelmaan. Olin jo aikaisemmin raporttia tehdessä vahingossa aloittanut tästä, joten osa kansioiden nimistä on päin helv...ä ja copypastettujen koodien lisäämisestä ei oikeen tullut mitään.
+- Vaihtelin nimiä ja muita, mutta mitään ei edelleenkään tapahtunut, vaan curlikomennot johdattivat suoraan Apache2 default - sivulle
 
 
 
