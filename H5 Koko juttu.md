@@ -120,8 +120,10 @@ Komennolla host sekavaseiska.me palautuu seuraavat tiedot:
 ![hostsekavaseiska](https://github.com/NicoSaario/Linux_Palvelimet/assets/156778628/3f015063-9a48-41e9-83b5-42907e6159b1)
 - Ensimmäisen rivin IP on sama, kuin NameCheapissa. Myös TXT Record näyttäisi olevan sama.
 ![txtrecord](https://github.com/NicoSaario/Linux_Palvelimet/assets/156778628/02cebfa9-32ff-4a9a-a2d0-823b25f3feec)
-- Dig - komento näyttää Debianin version ensimmäisellä rivillä, vastauksen sekavaseiska.me IP-osoitteesta, vastauksen keston ja serverin IP-osoitteen sekä sen, koska komento suoritettiin
+
 ![arecord](https://github.com/NicoSaario/Linux_Palvelimet/assets/156778628/2e17fc93-21d7-4ce1-a60a-8a4b57af70d3)
+- Dig - komento näyttää Debianin version ensimmäisellä rivillä, vastauksen sekavaseiska.me IP-osoitteesta, vastauksen keston ja serverin IP-osoitteen sekä sen, koska komento suoritettiin
+- ![dig_komento](https://github.com/NicoSaario/Linux_Palvelimet/assets/156778628/375040b4-e2bc-4b75-be01-90fe7896e129)
 
 ### Lähteet
 https://terokarvinen.com/2021/install-debian-on-virtualbox/ (luettu 11.03.2024)
