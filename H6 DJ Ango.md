@@ -1,3 +1,19 @@
+# Dj Ango
+
+## Tehtävien suoritus
+Tehtävät on suoritettu Oracle VM VirtualBoxilla, taustalla Windows 11 - Home - käyttöjärjestelmä, päivitykset ajettu 14.03.2024 asti. AMD Ryzen 5 4500U, RAM 8 Gt. Aika: Itä-Euroopan normaaliaika Aikavyöhyke: Suomi (UTC+2) 14.03.2024
+
+## Tiivistelmä
+- Tehtävänä tiivistää seuraavat artikkelit muutamalla omalla huomiolla:
+- https://terokarvinen.com/2022/django-instant-crm-tutorial/
+- https://terokarvinen.com/2022/deploy-django/
+- Artikkelit liittyvät vahvasti toisiinsa
+- pip EI KÄYTETÄ SUDONA
+- Kansiopolut ovat elintärkeitä Apachen ja Pythonin yhdistämiseen
+- Control + C tappaa VirtualEnvin, ei Control+Z
+- Aina päivitetään tietokannat, jos halutaan muutoksia
+- Raketti on lähtökohtaisesti hyvä merkki
+
 ## Yksinkertainen esimerkkiohjelma Djangolla
 
 Käytän apuna https://terokarvinen.com/2022/django-instant-crm-tutorial/ sekä https://terokarvinen.com/2022/deploy-django/ ohjeita.
@@ -128,6 +144,7 @@ micro crm/models.py
 ## Tuotantoon
 - Noudatin https://terokarvinen.com/2022/deploy-django/ ohjeita, mutta törmäsin muutamaan ongelmaan. Olin jo aikaisemmin raporttia tehdessä vahingossa aloittanut tästä, joten osa kansioiden nimistä on päin helv...ä ja copypastettujen koodien lisäämisestä ei oikeen tullut mitään.
 - Vaihtelin nimiä ja muita, mutta mitään ei edelleenkään tapahtunut, vaan curlikomennot johdattivat suoraan Apache2 default - sivulle
+- Nyt en itse asiassa enää pääse avaamaan koko runserveriä, joten jotain on mennyt pieleen..
 
 
 
