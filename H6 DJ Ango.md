@@ -144,8 +144,8 @@ micro crm/models.py
 ## Tuotantoon
 - Noudatin https://terokarvinen.com/2022/deploy-django/ ohjeita, mutta törmäsin muutamaan ongelmaan. Olin jo aikaisemmin raporttia tehdessä vahingossa aloittanut tästä, joten osa kansioiden nimistä on päin helv...ä ja copypastettujen koodien lisäämisestä ei oikeen tullut mitään.
 - Vaihtelin nimiä ja muita, mutta mitään ei edelleenkään tapahtunut, vaan curlikomennot johdattivat suoraan Apache2 default - sivulle
-- Nyt en itse asiassa enää pääse avaamaan koko runserveriä, joten jotain on mennyt pieleen..
-- Tehtävä jäi vaiheeseen tämän osalta
+- Homma siis toimii, mutta sivuna on vielä Apache2 Default Page. Kokeilin curlilla molemmat komennot ja tässä lopputulos:
+- ![curlit](https://github.com/NicoSaario/Linux_Palvelimet/assets/156778628/2caeed2d-2730-4ed2-b4b2-d118ec16dcd1)
 
 ### Lähteet
 https://terokarvinen.com/2022/django-instant-crm-tutorial/ (luettu 14.04.2024)
