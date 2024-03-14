@@ -147,5 +147,12 @@ micro crm/models.py
 - Nyt en itse asiassa enää pääse avaamaan koko runserveriä, joten jotain on mennyt pieleen..
 
 
+### Lähteet
+https://terokarvinen.com/2022/django-instant-crm-tutorial/ (luettu 14.04.2024)
+https://terokarvinen.com/2022/deploy-django/ (luettu 14.04.2024)
+https://stackoverflow.com/questions/20239232/django-server-error-port-is-already-in-use (luettu 14.04.2024)
+https://stackoverflow.com/questions/6358030/how-to-reset-django-admin-password (luettu 14.04.2024)
+
+
 
   
