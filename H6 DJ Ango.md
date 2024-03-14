@@ -145,7 +145,7 @@ micro crm/models.py
 - Noudatin https://terokarvinen.com/2022/deploy-django/ ohjeita, mutta törmäsin muutamaan ongelmaan. Olin jo aikaisemmin raporttia tehdessä vahingossa aloittanut tästä, joten osa kansioiden nimistä on päin helv...ä ja copypastettujen koodien lisäämisestä ei oikeen tullut mitään.
 - Vaihtelin nimiä ja muita, mutta mitään ei edelleenkään tapahtunut, vaan curlikomennot johdattivat suoraan Apache2 default - sivulle
 - Nyt en itse asiassa enää pääse avaamaan koko runserveriä, joten jotain on mennyt pieleen..
-
+- Tehtävä jäi vaiheeseen tämän osalta
 
 ### Lähteet
 https://terokarvinen.com/2022/django-instant-crm-tutorial/ (luettu 14.04.2024)
