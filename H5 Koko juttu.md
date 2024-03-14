@@ -110,6 +110,10 @@ Korjataan muutama juttu, eli tehdään muutama reikä https://terokarvinen.com/2
 ![sekavaseiska](https://github.com/NicoSaario/Tunti1/assets/156778628/89714225-684d-4853-ba4c-e6cef2cc6be1)
 
 
+### Lähteet
+https://terokarvinen.com/2021/install-debian-on-virtualbox/ (luettu 11.03.2024)
+Oma aikaisempi md https://github.com/NicoSaario/Tunti1/blob/main/h4%20Maailma%20kuulee.md (11.03.2024)
+https://terokarvinen.com/2016/instant-firewall-sudo-ufw-enable/?fromSearch=firewall (luettu 11.03.2024)
 
 
 
