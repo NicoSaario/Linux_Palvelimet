@@ -1,0 +1,320 @@
+#include <Arduino.h>
+#include <WiFi.h>
+#include <WiFiClientSecure.h>
+#include <UniversalTelegramBot.h>
+#include <esp_camera.h>
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+#include <time.h>  // ⏰ Ajan käsittely
+
+// Wi-Fi credentials
+const char* ssid = "moaiwlan";
+const char* password = "Ossi1Paavo234";
+
+// Telegram bot
+#define BOTtoken "8105534717:AAErBdHNDRw4WxAsWs6LWxZkVca6BG41xEA"
+#define CHAT_ID "6581190393"
+
+WiFiClientSecure client;
+UniversalTelegramBot bot(BOTtoken, client);
+
+// PIR motion sensor
+#define PIR_PIN 12
+bool motionDetectedPreviously = false;
+
+// Onboard LED
+#define LED_PIN 33
+
+// LCD (I2C osoite 0x27, 16x4)
+LiquidCrystal_I2C lcd(0x27, 16, 4);
+
+// Kamera: ESP32-WROVER-KIT
+#define CAMERA_MODEL_WROVER_KIT
+#if defined(CAMERA_MODEL_WROVER_KIT)
+  #define PWDN_GPIO_NUM    -1
+  #define RESET_GPIO_NUM   -1
+  #define XCLK_GPIO_NUM    21
+  #define SIOD_GPIO_NUM    26
+  #define SIOC_GPIO_NUM    27
+  #define Y9_GPIO_NUM      35
+  #define Y8_GPIO_NUM      34
+  #define Y7_GPIO_NUM      39
+  #define Y6_GPIO_NUM      36
+  #define Y5_GPIO_NUM      19
+  #define Y4_GPIO_NUM      18
+  #define Y3_GPIO_NUM       5
+  #define Y2_GPIO_NUM       4
+  #define VSYNC_GPIO_NUM   25
+  #define HREF_GPIO_NUM    23
+  #define PCLK_GPIO_NUM    22
+#endif
+
+// Telegram viestien polling
+int botRequestDelay = 1000;
+unsigned long lastTimeBotRan;
+
+// ⏱️ Ajan tallennusmuuttuja
+String viimeinenKuvaAika = "Ei otettu";
+
+// Kamera-asetukset
+void configInitCamera() {
+  camera_config_t config;
+  config.ledc_channel = LEDC_CHANNEL_0;
+  config.ledc_timer = LEDC_TIMER_0;
+  config.pin_d0 = Y2_GPIO_NUM;
+  config.pin_d1 = Y3_GPIO_NUM;
+  config.pin_d2 = Y4_GPIO_NUM;
+  config.pin_d3 = Y5_GPIO_NUM;
+  config.pin_d4 = Y6_GPIO_NUM;
+  config.pin_d5 = Y7_GPIO_NUM;
+  config.pin_d6 = Y8_GPIO_NUM;
+  config.pin_d7 = Y9_GPIO_NUM;
+  config.pin_xclk = XCLK_GPIO_NUM;
+  config.pin_pclk = PCLK_GPIO_NUM;
+  config.pin_vsync = VSYNC_GPIO_NUM;
+  config.pin_href = HREF_GPIO_NUM;
+  config.pin_sscb_sda = SIOD_GPIO_NUM;
+  config.pin_sscb_scl = SIOC_GPIO_NUM;
+  config.pin_pwdn = PWDN_GPIO_NUM;
+  config.pin_reset = RESET_GPIO_NUM;
+  config.xclk_freq_hz = 20000000;
+  config.pixel_format = PIXFORMAT_JPEG;
+  config.grab_mode = CAMERA_GRAB_LATEST;
+
+  config.frame_size = FRAMESIZE_SVGA;
+  config.jpeg_quality = 12;
+  config.fb_count = 1;
+
+  esp_err_t err = esp_camera_init(&config);
+  if (err != ESP_OK) {
+    Serial.printf("Camera init failed: 0x%x\n", err);
+    lcd.setCursor(0, 0);
+    lcd.print("Camera error!");
+    delay(2000);
+    ESP.restart();
+  }
+}
+
+// Telegram-kuvan lähetys
+String sendPhotoTelegram() {
+  const char* myDomain = "api.telegram.org";
+
+  camera_fb_t * fb = esp_camera_fb_get();
+  if(fb) esp_camera_fb_return(fb);
+  delay(200);
+  fb = esp_camera_fb_get();
+  if (!fb) {
+    Serial.println("Camera capture failed");
+    lcd.setCursor(0, 1);
+    lcd.print("Photo failed!  ");
+    return "Camera capture failed";
+  }
+
+  Serial.println("Connecting to Telegram API...");
+  if (client.connect(myDomain, 443)) {
+    Serial.println("Connected to Telegram API");
+
+    String head = "--RandomNerdTutorials\r\n"
+                  "Content-Disposition: form-data; name=\"chat_id\"\r\n\r\n" +
+                  String(CHAT_ID) +
+                  "\r\n--RandomNerdTutorials\r\n"
+                  "Content-Disposition: form-data; name=\"photo\"; filename=\"esp32-cam.jpg\"\r\n"
+                  "Content-Type: image/jpeg\r\n\r\n";
+
+    String tail = "\r\n--RandomNerdTutorials--\r\n";
+
+    size_t imageLen = fb->len;
+    size_t totalLen = imageLen + head.length() + tail.length();
+
+    client.print("POST /bot" + String(BOTtoken) + "/sendPhoto HTTP/1.1\r\n");
+    client.print("Host: " + String(myDomain) + "\r\n");
+    client.print("Content-Length: " + String(totalLen) + "\r\n");
+    client.print("Content-Type: multipart/form-data; boundary=RandomNerdTutorials\r\n\r\n");
+    client.print(head);
+
+    size_t sent = 0;
+    while (sent < fb->len) {
+      size_t chunkSize = (fb->len - sent) > 1024 ? 1024 : (fb->len - sent);
+      client.write(fb->buf + sent, chunkSize);
+      sent += chunkSize;
+    }
+
+    client.print(tail);
+    esp_camera_fb_return(fb);
+
+    // ⏰ Tallenna nykyinen aika
+    struct tm timeinfo;
+    if (getLocalTime(&timeinfo)) {
+      char timeStr[30];
+      strftime(timeStr, sizeof(timeStr), "%Y-%m-%d %H:%M:%S", &timeinfo);
+      viimeinenKuvaAika = String(timeStr);
+      Serial.println("Kuva otettu klo: " + viimeinenKuvaAika);
+    } else {
+      viimeinenKuvaAika = "Aika tuntematon";
+    }
+
+    // Näytölle OK
+    showOK();
+
+    String response = "";
+    long startTimer = millis();
+    while ((millis() - startTimer) < 10000) {
+      while (client.available()) {
+        char c = client.read();
+        response += c;
+      }
+      if (response.length() > 0) break;
+      delay(10);
+    }
+
+    client.stop();
+    Serial.println("Response:");
+    Serial.println(response);
+    return response;
+
+  } else {
+    Serial.println("Connection to Telegram API failed.");
+    lcd.setCursor(0, 1);
+    lcd.print("Telegram fail ");
+    return "Connection failed";
+  }
+}
+
+// LCD ilmoitus onnistuneesta kuvasta
+void showOK() {
+  lcd.clear();
+  lcd.setCursor(0, 1);
+  lcd.print("Photo taken: OK");
+  delay(1500);
+  updateLCD();
+}
+
+// Telegram-komentojen käsittely
+void handleNewMessages(int numNewMessages) {
+  for (int i = 0; i < numNewMessages; i++) {
+    String chat_id = String(bot.messages[i].chat_id);
+    if (chat_id != CHAT_ID) continue;
+
+    String text = bot.messages[i].text;
+
+    if (text == "/start") {
+      String welcome = "Welcome!\n";
+      welcome += "Available commands:\n";
+      welcome += "/photo - Take a photo\n";
+      bot.sendMessage(chat_id, welcome, "");
+    }
+
+    if (text == "/photo") {
+      sendPhotoTelegram();
+    }
+  }
+}
+
+// Päivitä LCD-näyttö
+void updateLCD() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("ESP32 Camera Bot");
+
+  lcd.setCursor(0, 1);
+  if (WiFi.status() == WL_CONNECTED) {
+    lcd.print("IP:");
+    lcd.setCursor(3, 1);
+    lcd.print(WiFi.localIP().toString());
+  } else {
+    lcd.print("No WiFi");
+  }
+
+  lcd.setCursor(0, 2);
+  lcd.print("PIR:");
+  lcd.setCursor(4, 2);
+  if (digitalRead(PIR_PIN) == HIGH) {
+    lcd.print("Motion");
+  } else {
+    lcd.print("No motion");
+  }
+
+  lcd.setCursor(0, 3);
+  lcd.print("Last pic:");
+  lcd.print(viimeinenKuvaAika.substring(11, 16)); // Näyttää klo HH:MM
+}
+
+// =================== Setup ===================
+void setup() {
+  Serial.begin(115200);
+  delay(1000);
+
+  Wire.begin(14,15);
+  lcd.init();
+  lcd.backlight();
+  updateLCD();
+
+  configInitCamera();
+
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+  client.setInsecure(); // turvaton SSL (testaukseen)
+
+  Serial.print("Connecting to WiFi");
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print(".");
+    delay(1000);
+  }
+  Serial.println("\nWiFi connected");
+  updateLCD();
+
+  // ⏰ Ajan asetukset (UTC+3)
+  configTime(3 * 3600, 0, "pool.ntp.org", "time.nist.gov");
+  struct tm timeinfo;
+  if (!getLocalTime(&timeinfo)) {
+    Serial.println("NTP-ajan haku epäonnistui");
+  } else {
+    Serial.println("NTP-aika haettu");
+  }
+
+  pinMode(PIR_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
+}
+
+unsigned long lastMotionSentTime = 0;
+const unsigned long motionSendInterval = 30000; // 30 sekuntia
+
+// =================== Loop ===================
+void loop() {
+  int pirState = digitalRead(PIR_PIN);
+  unsigned long currentMillis = millis();
+
+  if (pirState == HIGH && !motionDetectedPreviously && (currentMillis - lastMotionSentTime > motionSendInterval)) {
+    Serial.println("Motion detected! Sending photo...");
+    digitalWrite(LED_PIN, HIGH);
+    sendPhotoTelegram();
+    digitalWrite(LED_PIN, LOW);
+
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Kuva otettu");
+
+    lcd.setCursor(0,1);
+    lcd.print("Klo: ");
+    lcd.print(viimeinenKuvaAika.substring(11, 16)); // Näyttää klo HH:MM
+
+   
+
+    lastMotionSentTime = currentMillis;
+    motionDetectedPreviously = true;
+  }
+
+  if (pirState == LOW) {
+    motionDetectedPreviously = false;
+  }
+
+  // Telegram polling
+  if (millis() > lastTimeBotRan + botRequestDelay) {
+    int numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+    while (numNewMessages) {
+      handleNewMessages(numNewMessages);
+      numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+    }
+    lastTimeBotRan = millis();
+  }
+}
