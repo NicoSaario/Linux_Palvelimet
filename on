@@ -1,1 +1,150 @@
+```bash
+#!/bin/bash
 
+# Luo tarvittavat kansiot
+mkdir -p backend uploads
+
+# Luo .env
+cat > .env <<EOL
+POSTGRES_USER=myuser
+POSTGRES_PASSWORD=salainen
+POSTGRES_DB=mydb
+
+INFLUXDB_USERNAME=admin
+INFLUXDB_PASSWORD=salainen
+INFLUXDB_ORG=example-org
+INFLUXDB_BUCKET=example-bucket
+INFLUXDB_TOKEN=salainen-token
+EOL
+
+# docker-compose.yml
+cat > docker-compose.yml <<EOL
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: \${POSTGRES_USER}
+      POSTGRES_PASSWORD: \${POSTGRES_PASSWORD}
+      POSTGRES_DB: \${POSTGRES_DB}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - esp32-net
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8081:8080"
+    networks:
+      - esp32-net
+
+  backend:
+    build: ./backend
+    restart: always
+    volumes:
+      - ./uploads:/app/uploads
+    ports:
+      - "3000:3000"
+    networks:
+      - esp32-net
+
+  influxdb:
+    image: influxdb:2.7
+    container_name: influxdb
+    restart: always
+    ports:
+      - "8086:8086"
+    networks:
+      - esp32-net
+    volumes:
+      - influxdb-data:/var/lib/influxdb2
+      - influxdb-config:/etc/influxdb2
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: \${INFLUXDB_USERNAME}
+      DOCKER_INFLUXDB_INIT_PASSWORD: \${INFLUXDB_PASSWORD}
+      DOCKER_INFLUXDB_INIT_ORG: \${INFLUXDB_ORG}
+      DOCKER_INFLUXDB_INIT_BUCKET: \${INFLUXDB_BUCKET}
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: \${INFLUXDB_TOKEN}
+
+volumes:
+  db_data:
+  influxdb-data:
+  influxdb-config:
+
+networks:
+  esp32-net:
+    driver: bridge
+EOL
+
+# backend/Dockerfile (yksinkertainen mock HTTP server)
+cat > backend/Dockerfile <<EOL
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Copy mock backend
+COPY app.py .
+
+EXPOSE 3000
+CMD ["python", "app.py"]
+EOL
+
+# backend/app.py (yksinkertainen Flask mock)
+cat > backend/app.py <<EOL
+from http.server import SimpleHTTPRequestHandler, HTTPServer
+
+PORT = 3000
+
+class Handler(SimpleHTTPRequestHandler):
+    def do_POST(self):
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        self.wfile.write(b'{ "ok": true, "id": 1 }')
+
+with HTTPServer(("", PORT), Handler) as httpd:
+    print(f"Mock backend running on port {PORT}")
+    httpd.serve_forever()
+EOL
+
+# .gitignore
+cat > .gitignore <<EOL
+uploads/
+db_data/
+influxdb-data/
+influxdb-config/
+.env
+.DS_Store
+EOL
+
+# README.md
+cat > README.md <<EOL
+# ESP32 Docker -projekti (mock backend)
+
+Valmis Docker-projekti ESP32 + PostgreSQL + Adminer + InfluxDB testaamiseen.
+
+## Käyttö
+docker compose up -d
+
+## Palvelut
+- Mock Backend API: http://localhost:3000 (POST palauttaa { "ok": true, "id": 1 })
+- Adminer: http://localhost:8081
+- InfluxDB UI: http://localhost:8086
+
+## Adminer kirjautuminen
+- System: PostgreSQL
+- Server: db
+- Username: myuser
+- Password: salainen
+- Database: mydb
+
+## Testi (curl)
+curl -X POST http://localhost:3000
+EOL
+
+echo "✅ Kaikki tiedostot luotu! Suorita 'docker compose up -d'"
